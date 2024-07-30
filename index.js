@@ -1,5 +1,5 @@
 const prompt = require('prompt-sync')();
-const {adicionar, listar, atualizar} = require('./crud.js');
+const {adicionar, listar, atualizar, remover} = require('./crud.js');
 
 while(true) {
 
@@ -27,9 +27,15 @@ Olá seja bem-vindo! Como podemos lhe ajudar hoje?
         case 3:
             atualizar();
             break;
+        case 4:
+            remover();
+            break;
         case 0:
             console.log("Ok! Obrigado até mais!");
             return;
+        default:
+            console.log("Opção não reconhecida! Tente novamente!");
+            break;
     }
 }
 
