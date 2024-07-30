@@ -1,5 +1,5 @@
 const prompt = require('prompt-sync')();
-const {adicionar, listar} = require('./crud.js');
+const {adicionar, listar, atualizar} = require('./crud.js');
 
 while(true) {
 
@@ -23,6 +23,9 @@ Olá seja bem-vindo! Como podemos lhe ajudar hoje?
             break;
         case 2:
             listar();
+            break;
+        case 3:
+            atualizar();
             break;
         case 0:
             console.log("Ok! Obrigado até mais!");

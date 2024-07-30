@@ -1,6 +1,6 @@
 const prompt = require('prompt-sync')();
 
-const produtos = [];
+const produtos = [{nomeProduto: "bone", precoProduto: 1.99}];
 
 function modelo() {
     const nomeProduto = prompt("Nome do produto: ");
@@ -21,6 +21,7 @@ function adicionar() {
     
     if(produto != undefined) {
         produtos.push(produto);
+        console.log("Produto adicionado com sucesso!");
     } else {
         console.log("Dados inválidos!");
     }
@@ -36,4 +37,23 @@ function listar() {
     }
 }
 
-module.exports = {adicionar, listar};
+function atualizar() {
+    listar();
+    let index = prompt("Qual produto você deseja atualizar? ");
+    if(index <= produtos.length && index > 0 && !isNaN(index) ) {
+        index--;
+        const produto = modelo();
+        if(produto != undefined) {
+            produtos[index] = produto;
+            console.log("Produto atualizado com sucesso!");
+        } else {
+            console.log("Dados inválidos!");
+        }
+        
+    } else {
+        console.log("Dados inválidos!");
+    }
+    
+}
+
+module.exports = {adicionar, listar, atualizar};
